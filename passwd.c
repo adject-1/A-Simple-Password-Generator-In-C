@@ -3,9 +3,6 @@
 #include <time.h>
 #include "passwd.h"
 
-
-
-
 #define MIN 33
 #define MAX 126
 
@@ -18,27 +15,30 @@ int takeInput(){
 
 void generatePassword(int size){
 
-    printf("Started genPass funct\n");
+    printf("Started genPass funct\n");  /* Debug print statements */
 
-    char* passwd = malloc(size * sizeof(char));
+    char* passwd = malloc((size+1) * sizeof(char));
     if (passwd == NULL) {
         printf("Memory allocation failed\n");
         return;
     }
 
-    srand(time(NULL));
-
-    int index = 0;
     for (int i = 0; i < size ; i++) {
         int code = rand() % (MAX + 1 - MIN) + MIN;
-        scanf("%c", &passwd[index++]);
+        passwd[i] = (char)code;
     }
+
+    passwd[size] = '\0';
+
+    printf("Generated Passwd\n\n");     /* Debug print statements */
 
     for (int i = 0; i< size; i++) {
         printf("%c", passwd[i]);
     }
 
-    printf("Ended genPass funct\n");
+    free(passwd);
+
+    printf("Ended genPass funct\n");    /* Debug print statements */
 
     printf("\n");
 }
