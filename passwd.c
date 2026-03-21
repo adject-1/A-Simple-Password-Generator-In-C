@@ -1,23 +1,26 @@
 #include <stdio.h>
-#include "passwd.h"
-
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "passwd.h"
+
+
+
 
 #define MIN 33
 #define MAX 126
 
-int *takeInput(){
+int takeInput(){
     int strSize;
     printf("Enter the length of your password: ");
     scanf("%d", &strSize);
-    return &strSize;
+    return strSize;
 }
 
-void generatePassword(int *size){
+void generatePassword(int size){
 
-    char* passwd = malloc(*size * sizeof(char));
+    printf("Started genPass funct\n");
+
+    char* passwd = malloc(size * sizeof(char));
     if (passwd == NULL) {
         printf("Memory allocation failed\n");
         return;
@@ -26,14 +29,16 @@ void generatePassword(int *size){
     srand(time(NULL));
 
     int index = 0;
-    for (int i = 0; i < *size ; i++) {
+    for (int i = 0; i < size ; i++) {
         int code = rand() % (MAX + 1 - MIN) + MIN;
         scanf("%c", &passwd[index++]);
     }
 
-    for (int i = 0; i< *size; i++) {
+    for (int i = 0; i< size; i++) {
         printf("%c", passwd[i]);
     }
+
+    printf("Ended genPass funct\n");
 
     printf("\n");
 }
