@@ -8,10 +8,14 @@
 int main(){
 
     int size = takeInput();
-    printf("%d\n", size);
 
     srand(time(NULL));
-    generatePassword(size);
+
+    char *passwd = generatePassword(size);
+
+    display(passwd);
+
+    free(passwd);
 
     return 0;
 }

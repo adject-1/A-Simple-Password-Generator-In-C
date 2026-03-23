@@ -5,6 +5,7 @@
 #define MAX 126
 
 int takeInput();
-void generatePassword(int size);
+char* generatePassword(int size);
+void display(char *passwd);
 
 #endif
