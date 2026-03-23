@@ -15,6 +15,8 @@ int main(){
 
     display(passwd);
 
+    entropy(passwd, size);
+
     free(passwd);
 
     return 0;

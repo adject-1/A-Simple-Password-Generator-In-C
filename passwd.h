@@ -7,5 +7,7 @@
 int takeInput();
 char* generatePassword(int size);
 void display(char *passwd);
+void entropy(char *passwd, int size);
+// int* probability(char *passwd, int size);
 
 #endif
